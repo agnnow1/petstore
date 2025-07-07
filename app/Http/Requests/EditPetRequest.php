@@ -1,0 +1,20 @@
+<?php
+declare(strict_types=1);
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class EditPetRequest extends FormRequest
+{
+    public function rules(): array
+    {
+        return [
+            'id' => 'required|int',
+            'name' => 'required|string',
+            'photoUrls' => 'required|array',
+            'photoUrls.*' =>  'required|string|url',
+            'status' => 'required|string'
+        ];
+    }
+}
